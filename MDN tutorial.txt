@@ -1,0 +1,28 @@
+enviroment: mytest
+project: locallibrary
+
+Podemos obtener todos los registros de un modelo como QuerySet, utilizando objects.all(). El QuerySetes un objeto iterable, lo que significa que contiene una serie de objetos que puede iterar / bucle a través.
+
+all_books = Book.objects.all()
+El filter()método de Django nos permite filtrar lo devuelto QuerySetpara que coincida con un texto o campo numérico específico según criterios particulares. Por ejemplo, para filtrar los libros que contienen "wild" en el título y luego contarlos, podríamos hacer lo siguiente.
+
+wild_books = Book.objects.filter(title__contains='wild')
+number_wild_books = wild_books.count()
+
+UUIDFieldse utiliza para que el idcampo lo establezca como primary_keypara este modelo. Este tipo de campo asigna un valor único global para cada instancia (uno para cada libro que puede encontrar en la biblioteca).
+DateFieldse usa para la due_backfecha (en la que se espera que el libro esté disponible después de ser prestado o en mantenimiento). Este valor puede ser blanko null(necesario para cuando el libro esté disponible). Los metadatos del modelo ( Class Meta) usan este campo para ordenar registros cuando se devuelven en una consulta.
+statuses un CharFieldque define una lista de selección / selección. Como puede ver, definimos una tupla que contiene tuplas de pares clave-valor y la pasamos al argumento de las opciones. El valor en un par de clave / valor es un valor de visualización que un usuario puede seleccionar, mientras que las claves son los valores que realmente se guardan si se selecciona la opción. También hemos establecido un valor predeterminado de 'm' (mantenimiento) ya que los libros se crearán inicialmente no disponibles antes de que se almacenen en los estantes.
+El modelo __str__()representa el BookInstanceobjeto utilizando una combinación de su ID única y el Booktítulo del asociado .
+
+
+// subir a repositorio en GitHub
+
+$ git init
+Initialized empty Git repository in ~/djangogirls/.git/
+$ git config --global user.name "Tu nombre"
+$ git config --global user.email tu@ejemplo.com
+git status
+$ git add --all .
+$ git commit -m "Mi aplicación Django Girls, primer commit"
+ git remote add origin https://github.com/<your-github-username>/my-first-blog.git
+$ git push -u origin master
