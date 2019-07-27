@@ -26,3 +26,9 @@ $ git add --all .
 $ git commit -m "Mi aplicación Django Girls, primer commit"
  git remote add origin https://github.com/<your-github-username>/my-first-blog.git
 $ git push -u origin master
+
+$ git status
+$ git add -A .
+$ git status
+$ git commit -m "Agregadas vistas y plantilla para el detalle del post del blog así como también CSS para el sitio."
+$ git push
